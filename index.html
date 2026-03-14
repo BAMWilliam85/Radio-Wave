@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RADIOWAVE — Stations du Monde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Barlow+Condensed:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header>
+    <div class="logo">RADIO<span>WAVE</span></div>
+    <div class="header-info">
+      <div id="clock">00:00:00</div>
+      <div>LIVE STREAMING</div>
+    </div>
+  </header>
+
+  <!-- ═══ PLAYER BAR ═══ -->
+  <div id="player-bar">
+    <div class="now-playing-label">▶ ON AIR</div>
+
+    <div id="visualizer">
+      <div class="vis-bar" style="height:8px"></div>
+      <div class="vis-bar" style="height:20px"></div>
+      <div class="vis-bar" style="height:12px"></div>
+      <div class="vis-bar" style="height:28px"></div>
+      <div class="vis-bar" style="height:16px"></div>
+      <div class="vis-bar" style="height:24px"></div>
+      <div class="vis-bar" style="height:10px"></div>
+      <div class="vis-bar" style="height:20px"></div>
+    </div>
+
+    <div class="now-playing-info">
+      <div id="station-name">— SÉLECTIONNEZ UNE STATION —</div>
+      <div id="station-meta">Cliquez sur une carte pour écouter</div>
+    </div>
+
+    <div class="controls">
+      <div class="status-led" id="status-led"></div>
+      <button id="play-btn" title="Play / Stop">▶</button>
+      <div class="vol-group">
+        <span class="vol-icon">🔈</span>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8">
+        <span class="vol-icon">🔊</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TABS ═══ -->
+  <div id="tabs">
+    <div class="tab active" data-panel="panel-fr">📻 FM France</div>
+    <div class="tab" data-panel="panel-rap">🎤 Rap / Hip-Hop</div>
+    <div class="tab" data-panel="panel-world">🌍 World / Divers</div>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <div id="main">
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search" placeholder="Rechercher une station...">
+    </div>
+
+    <!-- PANEL : FM FRANCE -->
+    <div class="panel active" id="panel-fr">
+      <div class="section-header">
+        <div class="section-title">Stations FM Françaises</div>
+        <div class="section-line"></div>
+        <div class="section-count" id="count-fr"></div>
+      </div>
+      <div class="station-grid" id="grid-fr"></div>
+    </div>
+
+    <!-- PANEL : RAP / HIP-HOP -->
+    <div class="panel" id="panel-rap">
+      <div class="section-header">
+        <div class="section-title">Rap &amp; Hip-Hop</div>
+        <div class="section-line"></div>
+        <div class="section-count" id="count-rap"></div>
+      </div>
+      <div class="station-grid" id="grid-rap"></div>
+    </div>
+
+    <!-- PANEL : WORLD / DIVERS -->
+    <div class="panel" id="panel-world">
+      <div class="section-header">
+        <div class="section-title">World &amp; Divers</div>
+        <div class="section-line"></div>
+        <div class="section-count" id="count-world"></div>
+      </div>
+      <div class="station-grid" id="grid-world"></div>
+    </div>
+
+  </div>
+
+  <!-- ═══ TOAST ═══ -->
+  <div id="toast"></div>
+
+  <!-- ═══ AUDIO ═══ -->
+  <audio id="audio"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
